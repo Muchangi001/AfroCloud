@@ -15,7 +15,7 @@
 
 <div class="hero">
 	<h1>🎨 AfroCloud</h1>
-	<p class="hero-subtitle">Empowering Kenyan Artists</p>
+	<p class="hero-subtitle">Nuturing African Art and Culture</p>
 	<div class="cta-section">
 		<button on:click={signInWithGoogle} class="cta-btn">Join as Artist</button>
 	</div>
