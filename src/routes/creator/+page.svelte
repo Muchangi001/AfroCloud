@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { EditIcon, Trash2Icon } from 'svelte-feather-icons';
+	import { supabase } from '$lib/supabaseClient';
 
 	type ArtPiece = {
 		id: number;
@@ -13,6 +14,8 @@
 	let artPieces: ArtPiece[] = [];
 	let loading = true;
 	let userName = 'Artist';
+
+	let session: any = null;
 
 	// Dummy Data inspired by Kenyan art and culture
 	const dummyArtPieces: ArtPiece[] = [
@@ -54,8 +57,10 @@
 		}
 	];
 
-	onMount(() => {
+	onMount(async () => {
 		// In a real scenario, you would fetch user data here.
+		const { data: { session: sess } } = await supabase.auth.getSession();
+		session = sess;
 		// For now, we use a timeout to simulate loading.
 		setTimeout(() => {
 			artPieces = dummyArtPieces;
