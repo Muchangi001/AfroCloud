@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { supabase } from '$lib/supabaseClient';
 	import { page } from '$app/stores'; // 1. Import the page store
-
+    
 	async function signInWithGoogle() {
 		await supabase.auth.signInWithOAuth({
 			provider: 'google',
